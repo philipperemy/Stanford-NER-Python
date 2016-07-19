@@ -64,11 +64,18 @@ def process_entity_relations(entity_relations_str, verbose=True):
     return entity_relations
 
 
-def stanford_ner(filename, verbose=True):
+def stanford_ner(filename, verbose=True, absolute_path=None):
     out = 'out.txt'
-    command = 'cd {}; {} -mx1g -cp "*:lib/*" edu.stanford.nlp.ie.NERClassifierCombiner ' \
-              '-ner.model classifiers/english.all.3class.distsim.crf.ser.gz ' \
-              '-outputFormat tabbedEntities -textFile ../{} > ../{}' \
+
+    command = ''
+    if absolute_path is not None:
+        command = 'cd {};'.format(absolute_path)
+    else:
+        filename = '../{}'.format(filename)
+
+    command += 'cd {}; {} -mx1g -cp "*:lib/*" edu.stanford.nlp.ie.NERClassifierCombiner ' \
+               '-ner.model classifiers/english.all.3class.distsim.crf.ser.gz ' \
+               '-outputFormat tabbedEntities -textFile {} > ../{}' \
         .format(STANFORD_NER_FOLDER, JAVA_BIN_PATH, filename, out)
 
     if verbose:
@@ -78,6 +85,9 @@ def stanford_ner(filename, verbose=True):
         java_process = Popen(command, stdout=stderr, stderr=open(os.devnull, 'w'), shell=True)
     java_process.wait()
     assert not java_process.returncode, 'ERROR: Call to stanford_ner exited with a non-zero code status.'
+
+    if absolute_path is not None:
+        out = absolute_path + out
 
     with open(out, 'r') as output_file:
         results_str = output_file.readlines()
@@ -91,7 +101,8 @@ def stanford_ner(filename, verbose=True):
             entity_type = split_res[1]
             results.append([entity_name, entity_type])
 
-    pickle.dump(results_str, open('out.pkl', 'w'))
+    if verbose:
+        pickle.dump(results_str, open('out.pkl', 'w'))
     debug_print('wrote to out.pkl', verbose)
     return results_str
 
