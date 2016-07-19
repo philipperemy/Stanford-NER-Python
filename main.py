@@ -98,7 +98,7 @@ def stanford_ner(filename, verbose=True):
 
 def main(args):
     arg_p = arg_parse().parse_args(args[1:])
-    filename = 'samples.txt'
+    filename = arg_p.filename
     verbose = arg_p.verbose
     print(arg_p)
     if filename is None:
