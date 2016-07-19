@@ -95,16 +95,18 @@ def stanford_ner(filename, verbose=True, absolute_path=None):
 
     results = []
     for res in results_str:
-        if len(res.strip()):
-            split_res = res.strip().split('\t')
+        if len(res.strip()) > 0:
+            split_res = res.split('\t')
             entity_name = split_res[0]
             entity_type = split_res[1]
-            results.append([entity_name, entity_type])
+
+            if len(entity_name) > 0 and len(entity_type) > 0:
+                results.append([entity_name.strip(), entity_type.strip()])
 
     if verbose:
         pickle.dump(results_str, open('out.pkl', 'w'))
     debug_print('wrote to out.pkl', verbose)
-    return results_str
+    return results
 
 
 def main(args):
@@ -118,8 +120,7 @@ def main(args):
     if verbose:
         debug_print('filename = {}'.format(filename), verbose)
     entities = stanford_ner(filename, verbose)
-    for elt in entities:
-        print(elt.strip())
+    print(entities)
 
 
 if __name__ == '__main__':
