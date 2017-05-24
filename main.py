@@ -104,8 +104,8 @@ def stanford_ner(filename, verbose=True, absolute_path=None):
                 results.append([entity_name.strip(), entity_type.strip()])
 
     if verbose:
-        pickle.dump(results_str, open('out.pkl', 'w'))
-    debug_print('wrote to out.pkl', verbose)
+        pickle.dump(results_str, open('out.pkl', 'wb'))
+        debug_print('wrote to out.pkl', verbose)
     return results
 
 
@@ -113,14 +113,14 @@ def main(args):
     arg_p = arg_parse().parse_args(args[1:])
     filename = arg_p.filename
     verbose = arg_p.verbose
-    print(arg_p)
+    debug_print(arg_p, verbose)
     if filename is None:
         print('please provide a text file containing your input. Program will exit.')
         exit(1)
     if verbose:
         debug_print('filename = {}'.format(filename), verbose)
     entities = stanford_ner(filename, verbose)
-    print(entities)
+    print('\n'.join([entity[0].ljust(20) + '\t' + entity[1] for entity in entities]))
 
 
 if __name__ == '__main__':
