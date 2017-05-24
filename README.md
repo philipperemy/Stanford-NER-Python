@@ -2,11 +2,14 @@
 
 The unofficial cross-platform Python wrapper for the <b>state-of-art</b> named entity recognition library from Stanford University.
 
-From this sentence `Google bought IBM for 10 dollars.`, we extract:
+Input: `Google bought IBM for 10 dollars. Mike was happy about this deal.`
 
+Output:
 ```
 Google              	ORGANIZATION
 IBM                 	ORGANIZATION
+10 dollars          	MONEY
+Mike                	PERSON
 ```
 
 ## About Stanford NER
@@ -42,4 +45,4 @@ chmod +x init.sh
 
 ## Support
 
-You can either open an `Issue` or send me a e-mail to premy@reactive.co.jp. Any contributions are welcomed!
+You can either open an `Issue` or send me a e-mail to premy@cogent.co.jp. Any contributions are welcomed!
