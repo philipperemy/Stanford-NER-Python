@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+stanford-ner/
 
 # C extensions
 *.so
