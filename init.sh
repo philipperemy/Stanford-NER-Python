@@ -7,4 +7,4 @@ unzip stanford-ner-2015-12-09.zip
 mv stanford-ner-2015-12-09 stanford-ner
 echo "Google bought IBM for 10 dollars. Mike was happy about this deal." > samples.txt
 python main.py -f samples.txt -v
-rm stanford-ner-2015-12-09.zip
+rm -rf stanford-ner-2015-12-09.zip
