@@ -18,7 +18,7 @@ Named Entity Recognition (NER) labels sequences of words in a text which are the
 
 More information can be found here : https://nlp.stanford.edu/software/CRF-NER.shtml
 
-## Usage
+## Installation
 
 First of all, make sure Java 1.8 is installed. Open a terminal and run this command to check:
 
@@ -42,6 +42,13 @@ cd Stanford-NER-Python
 chmod +x init.sh
 ./init.sh # will run this example above.
 ```
+
+## Usage
+
+```
+echo "Google bought IBM for 10 dollars. Mike was happy about this deal." > input.txt
+python main.py -f input.txt
+``
 
 ## Support
 
