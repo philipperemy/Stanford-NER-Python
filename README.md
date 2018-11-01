@@ -48,7 +48,7 @@ chmod +x init.sh
 ```
 echo "Google bought IBM for 10 dollars. Mike was happy about this deal." > input.txt
 python main.py -f input.txt
-``
+```
 
 ## Support
 
