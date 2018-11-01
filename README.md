@@ -45,9 +45,19 @@ chmod +x init.sh
 
 ## Usage
 
+#### Command
 ```
 echo "Google bought IBM for 10 dollars. Mike was happy about this deal." > input.txt
 python main.py -f input.txt
+```
+
+#### Output
+
+```
+Google              	ORGANIZATION
+IBM                 	ORGANIZATION
+10 dollars          	MONEY
+Mike                	PERSON
 ```
 
 ## Support
