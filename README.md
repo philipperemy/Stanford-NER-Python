@@ -22,13 +22,13 @@ More information can be found here : https://nlp.stanford.edu/software/CRF-NER.s
 
 First of all, make sure Java 1.8 is installed. Open a terminal and run this command to check:
 
-```
+```bash
 java -version
 ```
 
 If this is not the case and if your OS is Ubuntu, you can install it this way:
 
-```
+```bash
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java8-installer
@@ -36,7 +36,7 @@ sudo apt-get install oracle-java8-installer
 
 The code can be invoked either programmatically or through the command line. The program can be invoked with the following commands:
 
-```
+```bash
 git clone https://github.com/philipperemy/Stanford-NER-Python.git
 cd Stanford-NER-Python
 chmod +x init.sh
@@ -46,7 +46,7 @@ chmod +x init.sh
 ## Usage
 
 #### Command
-```
+```bash
 echo "Google bought IBM for 10 dollars. Mike was happy about this deal." > input.txt
 python main.py -f input.txt
 ```
