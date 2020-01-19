@@ -62,4 +62,4 @@ Mike                	PERSON
 
 ## Support
 
-You can either open an `Issue` or send me a e-mail to premy@cogent.co.jp. Any contributions are welcomed!
+Just open an issue. Any contributions are welcomed!
