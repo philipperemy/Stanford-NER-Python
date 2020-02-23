@@ -12,6 +12,8 @@ IBM                 	ORGANIZATION
 Mike                	PERSON
 ```
 
+NOTE: It works well on Linux and Ubuntu but it's unclear for Windows.
+
 ## About Stanford NER
 
 Named Entity Recognition (NER) labels sequences of words in a text which are the names of things, such as person and company names, or gene and protein names. It comes with well-engineered feature extractors for Named Entity Recognition, and many options for defining feature extractors. Included with the download are good named entity recognizers for English, particularly for the 3 classes (PERSON, ORGANIZATION, LOCATION).
